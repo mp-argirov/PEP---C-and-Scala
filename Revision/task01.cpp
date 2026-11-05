@@ -47,6 +47,13 @@ void shiftOriginal(Coordinate& point, int amount)
 };
 
 
+std::ostream& operator<<(std::ostream& os, Coordinate& a)
+{
+        int x = a.getx();
+        int y = a.gety();
+        cout << "(" << x << " , " << y << ") ";
+}
+
 
 int main()
 {
