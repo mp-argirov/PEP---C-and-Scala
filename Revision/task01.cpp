@@ -16,6 +16,16 @@ public:
         int gety() const { return y; };
         void setx(int newx) { x = newx; };
         void sety(int newy) { y = newy; };
+
+        bool operator==(const Coordinate& that)
+        {
+                int thisx = this->getx();
+                int thisy = this->gety();
+                int thatx = that.getx();
+                int thaty = that.gety();
+
+                return thisx == thatx && thisy == thaty;
+        }
 };
 
 
@@ -24,7 +34,7 @@ void printCoordinate(const Coordinate& point)
 {
         int x = point.getx();
         int y = point.gety();
-        cout << x << " , " << y << endl;
+        cout << "(" << x << " , " << y << "(" << endl;
 };
 
 void swapCoordinates(Coordinate& first, Coordinate& second)
@@ -53,6 +63,8 @@ std::ostream& operator<<(std::ostream& os, Coordinate& a)
         int y = a.gety();
         cout << "(" << x << " , " << y << ") ";
 }
+
+
 
 
 int main()
