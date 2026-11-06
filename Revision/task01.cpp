@@ -17,7 +17,7 @@ public:
         void setx(int newx) { x = newx; };
         void sety(int newy) { y = newy; };
 
-        bool operator==(const Coordinate& that)
+        bool operator==(const Coordinate& that) const
         {
                 int thisx = this->getx();
                 int thisy = this->gety();
@@ -34,7 +34,7 @@ void printCoordinate(const Coordinate& point)
 {
         int x = point.getx();
         int y = point.gety();
-        cout << "(" << x << " , " << y << "(" << endl;
+        cout << "(" << x << ", " << y << ")" << endl;
 };
 
 void swapCoordinates(Coordinate& first, Coordinate& second)
@@ -57,11 +57,11 @@ void shiftOriginal(Coordinate& point, int amount)
 };
 
 
-std::ostream& operator<<(std::ostream& os, Coordinate& a)
+std::ostream& operator<<(std::ostream& os, const Coordinate& a)
 {
         int x = a.getx();
         int y = a.gety();
-        os << "(" << x << " , " << y << ") ";
+        os << "(" << x << ", " << y << ")";
         return os;
 }
 
@@ -69,12 +69,12 @@ std::ostream& operator<<(std::ostream& os, Coordinate& a)
 template<typename T>
 void printAll(const T& items)
 {
-        for (auto object : items)
+        for (const auto& object : items)
         {
-                int x = object.getx();
-                int y = object.gety();
-                cout << x << " " << y << endl;
+                cout << object;
+                cout << " ";
         }
+        cout << endl;
 }
 
 
