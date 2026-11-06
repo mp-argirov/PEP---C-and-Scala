@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ostream>
+#include <vector>
 using std::endl;
 using std::cout;
 
@@ -63,6 +64,18 @@ std::ostream& operator<<(std::ostream& os, const Coordinate& a)
         int y = a.gety();
         os << "(" << x << ", " << y << ")";
         return os;
+}
+
+
+std::vector<Coordinate*> selectByX(const std::vector<Coordinate>& points, int minimumX)
+{
+        std::vector<Coordinate*> result;
+        for (Coordinate point : points) {
+                if (point.getx() >= minimumX) {
+                        result.push_back(&point);
+                }
+        }
+        return result;
 }
 
 
