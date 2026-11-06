@@ -69,10 +69,10 @@ std::ostream& operator<<(std::ostream& os, const Coordinate& a)
 }
 
 
-std::vector<Coordinate*> selectByX(const std::vector<Coordinate>& points, int minimumX)
+std::vector<Coordinate*> selectByX(std::vector<Coordinate>& points, int minimumX)
 {
         std::vector<Coordinate*> result;
-        for (Coordinate point : points) {
+        for (Coordinate& point : points) {
                 if (point.getx() >= minimumX) {
                         result.push_back(&point);
                 }
@@ -112,8 +112,8 @@ std::pair<int, int> xBounds(const std::vector<Coordinate>& points)
                                 result.second = points[i].getx();
                         }
                 }
-                return result;
         }
+        return result;
 
 }
 
