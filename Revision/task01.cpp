@@ -61,7 +61,20 @@ std::ostream& operator<<(std::ostream& os, Coordinate& a)
 {
         int x = a.getx();
         int y = a.gety();
-        cout << "(" << x << " , " << y << ") ";
+        os << "(" << x << " , " << y << ") ";
+        return os;
+}
+
+
+template<typename T>
+void printAll(const T& items)
+{
+        for (auto object : items)
+        {
+                int x = object.getx();
+                int y = object.gety();
+                cout << x << " " << y << endl;
+        }
 }
 
 
