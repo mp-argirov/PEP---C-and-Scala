@@ -79,6 +79,19 @@ std::vector<Coordinate*> selectByX(const std::vector<Coordinate>& points, int mi
 }
 
 
+void shiftSelected(const std::vector<Coordinate*>& selected, int dx, int dy)
+{
+        for (Coordinate* point : selected)
+        {
+                if (point != nullptr)
+                {
+                        point->setx(point->getx() + dx);
+                        point->sety(point->gety() + dy);
+                }
+        }
+}
+
+
 template<typename T>
 void printAll(const T& items)
 {
