@@ -92,6 +92,30 @@ void shiftSelected(const std::vector<Coordinate*>& selected, int dx, int dy)
 }
 
 
+std::pair<int, int> xBounds(const std::vector<Coordinate>& points)
+{
+        std::pair<int, int> result;
+        result.first = points[0].getx();
+        result.second = points[0].getx();
+        if (points.size() > 1)
+        {
+                for (int i = 1; i < points.size(); i++)
+                {
+                        if (points[i].getx() < result.first)
+                        {
+                                result.first = points[i].getx();
+                        }
+                        else if (points[i].getx() > result.second)
+                        {
+                                result.second = points[i].getx();
+                        }
+                }
+                return result;
+        }
+
+}
+
+
 template<typename T>
 void printAll(const T& items)
 {
