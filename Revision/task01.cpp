@@ -3,6 +3,8 @@
 #include <vector>
 using std::endl;
 using std::cout;
+using std::vector;
+using std::pair;
 
 
 
@@ -132,19 +134,13 @@ void printAll(const T& items)
 
 int main()
 {
-        Coordinate original(2, 7);
-        Coordinate snapshot = original;
-        Coordinate* pointer = &original;
-        Coordinate& alias = original;
-
-        pointer->setx(10);
-        alias.sety(20);
-        printCoordinate(original);
-        printCoordinate(snapshot);
-        printCoordinate(*pointer);
-        pointer = &snapshot;
-        Coordinate& tmp = *pointer;
-        tmp.setx(-5);
-        printCoordinate(original);
-        printCoordinate(snapshot);
+        vector<Coordinate> points = {Coordinate(2, 7), Coordinate(10, 1), Coordinate(-3, 4), Coordinate(10, 9)};
+        vector<Coordinate> snapshot = points;
+        vector<Coordinate*> selected = selectByX(points, 10);
+        selected.push_back(nullptr);
+        shiftSelected(selected, -5, 3);
+        printAll(points);
+        printAll(snapshot);
+        pair<int, int> temp = xBounds(points);
+        cout << temp.first << " " << temp.second << endl;
 };
